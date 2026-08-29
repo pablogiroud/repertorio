@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import type { Song } from "../data/types";
 import { LyricsView } from "./LyricsView";
-import { useAutoScroll } from "../hooks/useAutoScroll";
+import { useAutoScroll, MIN_SPEED, MAX_SPEED, SPEED_STEP } from "../hooks/useAutoScroll";
 
 const MIN_FONT_REM = 1.5;
 const MAX_FONT_REM = 5;
@@ -15,7 +15,11 @@ interface PlayScreenProps {
 export function PlayScreen({ song, onBack }: PlayScreenProps) {
   const [fontSizeRem, setFontSizeRem] = useState(2.5);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { isPlaying, toggle } = useAutoScroll(scrollRef, song.durationSec, fontSizeRem);
+  const { isPlaying, toggle, speed, setSpeed } = useAutoScroll(
+    scrollRef,
+    song.durationSec,
+    fontSizeRem,
+  );
 
   const changeFontSize = (delta: number) => {
     setFontSizeRem((prev) =>
@@ -43,9 +47,28 @@ export function PlayScreen({ song, onBack }: PlayScreenProps) {
             A+
           </button>
         </div>
+
         <button className="play-pause-button" onClick={toggle}>
           {isPlaying ? "Pausar" : "Play"}
         </button>
+
+        <div className="speed-controls">
+          <button
+            onClick={() => setSpeed(speed - SPEED_STEP)}
+            disabled={speed <= MIN_SPEED}
+            aria-label="Disminuir velocidad"
+          >
+            −
+          </button>
+          <span className="speed-value">{speed.toFixed(1)}x</span>
+          <button
+            onClick={() => setSpeed(speed + SPEED_STEP)}
+            disabled={speed >= MAX_SPEED}
+            aria-label="Acelerar velocidad"
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
   );

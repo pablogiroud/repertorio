@@ -162,3 +162,26 @@ button {
   background: var(--accent);
   border-color: var(--accent);
 }
+
+.speed-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.speed-controls button {
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+}
+
+.speed-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.speed-value {
+  min-width: 2.75rem;
+  text-align: center;
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+}
