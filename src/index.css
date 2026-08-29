@@ -1,0 +1,164 @@
+:root {
+  --bg: #0b0b0d;
+  --bg-elevated: #17171a;
+  --fg: #f2f2f0;
+  --fg-muted: #a8a8ac;
+  --accent: #d9a441;
+  --border: #2a2a2e;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/* --- Home / song list --- */
+
+.song-list-screen {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.app-title {
+  font-size: 2rem;
+  margin: 0 0 1.5rem;
+}
+
+.song-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.song-list-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.song-list-item:hover {
+  border-color: var(--accent);
+}
+
+.song-title {
+  font-weight: 600;
+}
+
+.song-artist {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+
+/* --- Play screen --- */
+
+.play-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+.play-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.play-header-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.back-button {
+  flex-shrink: 0;
+  padding: 0.5rem 0.75rem;
+}
+
+.lyrics-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  max-width: min(92vw, 900px);
+  margin-inline: auto;
+  width: 100%;
+  padding: 2rem 1rem 45vh;
+}
+
+.stanza {
+  margin-bottom: 1.5em;
+}
+
+.stanza:last-child {
+  margin-bottom: 0;
+}
+
+.lyric-line {
+  margin: 0;
+  line-height: 1.35;
+}
+
+.controls-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border);
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.font-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.font-controls button {
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+}
+
+.play-pause-button {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+}

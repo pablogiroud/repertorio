@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(mktemp -d)",
+      "Bash(cp -R . /Users/pablogiroud/dev/repertorio/)",
+      "Bash(cp -R .gitignore /Users/pablogiroud/dev/repertorio/)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/)"
+    ]
+  }
+}
