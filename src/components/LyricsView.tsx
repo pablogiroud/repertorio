@@ -16,6 +16,7 @@ export const LyricsView = forwardRef<HTMLDivElement, LyricsViewProps>(
       >
         {song.stanzas.map((stanza, i) => (
           <div className="stanza" key={i}>
+            <div className="stanza-number">{i + 1}</div>
             {stanza.map((line, j) => (
               <p className="lyric-line" key={j}>
                 {line}
