@@ -135,6 +135,15 @@ button {
   margin-bottom: 0.4em;
 }
 
+.stanza--chorus {
+  padding-left: 0.75em;
+  border-left: 3px solid var(--accent);
+}
+
+.stanza--chorus .lyric-line {
+  font-style: italic;
+}
+
 .lyric-line {
   margin: 0;
   line-height: 1.35;

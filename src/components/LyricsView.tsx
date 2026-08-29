@@ -14,16 +14,23 @@ export const LyricsView = forwardRef<HTMLDivElement, LyricsViewProps>(
         className="lyrics-container"
         style={{ fontSize: `${fontSizeRem}rem` }}
       >
-        {song.stanzas.map((stanza, i) => (
-          <div className="stanza" key={i}>
-            <div className="stanza-number">{i + 1}</div>
-            {stanza.map((line, j) => (
-              <p className="lyric-line" key={j}>
-                {line}
-              </p>
-            ))}
-          </div>
-        ))}
+        {song.stanzas.map((stanza, i) => {
+          return (
+            <div
+              className={stanza.isChorus ? "stanza stanza--chorus" : "stanza"}
+              key={i}
+            >
+              <div className="stanza-number">
+                {stanza.isChorus ? "Estribillo" : i + 1}
+              </div>
+              {stanza.lines.map((line, j) => (
+                <p className="lyric-line" key={j}>
+                  {line}
+                </p>
+              ))}
+            </div>
+          );
+        })}
       </div>
     );
   },
